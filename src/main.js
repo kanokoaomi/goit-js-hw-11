@@ -37,15 +37,13 @@ const onFormElement = event => {
       }
     })
     .catch(() => {
-      iziToast
-        .show({
-          message: 'Sorry, there is an issue. Please try again!',
-        })
-        .finally(() => {
-          hideLoader();
-        });
-
+      iziToast.show({
+        message: 'Sorry, there is an issue. Please try again!',
+      });
       form.reset();
+    })
+    .finally(() => {
+      hideLoader();
     });
 };
 
@@ -59,7 +57,7 @@ const hideLoader = () => {
 
 form.addEventListener('submit', onFormElement);
 
-const lightboxOpen = new SimpleLightbox('.gallery a', {
+new SimpleLightbox('.gallery a', {
   captions: true,
   captionsData: 'alt',
   captionDelay: 250,
